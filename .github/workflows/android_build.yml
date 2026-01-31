@@ -1,17 +1,64 @@
-steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+name: Windows-RDP-Server
 
-      - name: Set up JDK 11
-        uses: actions/setup-java@v4
-        with:
-          java-version: '11'
-          distribution: 'adopt'
+on:
+  workflow_dispatch: # 允许手动点击按钮启动
 
-      # ... 这里是你的编译代码 ...
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 360 # 设置最大运行时间为 6 小时
 
-      - name: Upload APK # 编译完后才上传
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-app-apk
-          path: app/build/outputs/apk/debug/*.apk
+    steps:
+      - name: 1. 下载并安装 Tailscale
+        run: |
+          curl -L -o tailscale-setup.msi https://pkgs.tailscale.com/stable/tailscale-setup-latest.msi
+          msiexec.exe /i tailscale-setup.msi /qn
+
+      - name: 2. 启动 Tailscale 并连接内网
+        env:
+          TS_AUTHKEY: ${{ secrets.TAILSCALE_AUTH_KEY }}
+        shell: powershell
+        run: |
+          # 等待安装程序就绪
+          Start-Sleep -Seconds 15
+          # 运行 Tailscale
+          & "C:\Program Files\Tailscale\tailscale.exe" up --authkey "$env:TS_AUTHKEY" --accept-routes
+          # 获取生成的内网 IP
+          $tsIP = & "C:\Program Files\Tailscale\tailscale.exe" ip -4
+          echo "=========================================="
+          echo "你的远程连接 IP 地址是: $tsIP"
+          echo "=========================================="
+
+      - name: 3. 配置 Windows 远程桌面设置
+        shell: powershell
+        run: |
+          # 允许远程连接
+          Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0
+          Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+          # 关闭网络级别身份验证 (方便连接)
+          Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 0
+
+      - name: 4. 创建 RDP 登录账户
+        shell: powershell
+        run: |
+          $Password = "RDP_User_2025!" # 这里你可以自定义密码
+          $User = "RDPUser"
+          net user $User $Password /add
+          net localgroup "Remote Desktop Users" $User /add
+          net localgroup "Administrators" $User /add
+          echo "=========================================="
+          echo "RDP 登录凭据："
+          echo "用户名: $User"
+          echo "密码: $Password"
+          echo "=========================================="
+
+      - name: 5. 保持在线并运行 6 小时
+        shell: powershell
+        run: |
+          echo "Windows RDP 服务已启动。任务将在 6 小时后自动结束。"
+          # 保持运行的循环
+          $startTime = Get-Date
+          while ((Get-Date) -lt $startTime.AddHours(6)) {
+              Write-Host "RDP 运行中...当前时间: $(Get-Date)"
+              Start-Sleep -Seconds 60
+          }
