@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ========== 主色调升级:深紫渐变主题 ========== -->
+    <color name="colorPrimary">#6366f1</color>
+    <color name="colorPrimaryDark">#4f46e5</color>
+    <color name="colorAccent">#8b5cf6</color>
+    
+    <!-- 新增:渐变色端点 -->
+    <color name="colorPrimaryLight">#818cf8</color>
+    <color name="colorAccentLight">#a78bfa</color>
+
+    <attr format="color" name="colorOnPrimary"/>
+
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="black_alpha_03">#08000000</color>
+    <color name="grey">#ffaaaaaa</color>
+    <color name="transparent">#00000000</color>
+    <color name="background">#f5f5f9</color>
+    <color name="grey_icon">#afafaf</color>
+    <color name="colorAction">#737373</color>
+    <color name="shadow_start_color">#11000000</color>
+    <color name="shadow_start_color_medium">#11000000</color>
+    <!-- 点击涟漪背景色 -->
+    <color name="color_ripple">#1f000000</color>
+    <color name="warning">#E53935</color>
+
+    <color name="appTextColorPrimary">#ff3e3e3e</color>
+    <color name="appTextColorSecondary">#ff666666</color>
+    <color name="appTextColorThird">#ff9b9b9b</color>
+    <color name="appTextColorLabel">@color/colorHint</color>
+
+    <color name="appBgBtnPressed">#008560</color>
+    <color name="appBgBtnDisabled">#99aaaaaa</color>
+
+    <color name="appBgIconBtnNormal">@color/transparent</color>
+    <color name="appBgIconBtnPressed">#ebebeb</color>
+
+    <color name="appBgBtnMonthSelectorStateNormal">@color/black_alpha_03</color>
+    <color name="appBgBtnMonthSelectorStateSelected">#0F956F</color>
+    <color name="appBgBtnMonthSelectorStateDisabled">@color/appBgBtnDisabled</color>
+
+    <color name="appBgTagStyle1StateNormal">#190F956F</color>
+    <color name="appBgTagStyle1StateSelected">@color/colorAccent</color>
+
+    <color name="divider">#dcdcdc</color>
+    <color name="colorHint">#66000000</color>
+
+    <color name="categoryColor1">#ff8a80</color>
+    <color name="categoryColor2">#ffd180</color>
+    <color name="categoryColor3">#ffff8d</color>
+    <color name="categoryColor4">#ccff90</color>
+
+    <color name="categoryExpenseColor1">#E65100</color>
+    <color name="categoryExpenseColor2">#EF6C00</color>
+    <color name="categoryExpenseColor3">#F57C00</color>
+    <color name="categoryExpenseColor4">#FB8C00</color>
+    <color name="categoryExpenseColor5">#FF9800</color>
+    <color name="categoryExpenseColor6">#FFA726</color>
+    <color name="categoryExpenseColor7">#FFB74D</color>
+    <color name="categoryExpenseColor8">#FFCC80</color>
+    <color name="categoryExpenseColor9">#FFE0B2</color>
+
+    <color name="categoryIncomeColor1">#1B5E20</color>
+    <color name="categoryIncomeColor2">#2E7D32</color>
+    <color name="categoryIncomeColor3">#388E3C</color>
+    <color name="categoryIncomeColor4">#43A047</color>
+    <color name="categoryIncomeColor5">#4CAF50</color>
+    <color name="categoryIncomeColor6">#66BB6A</color>
+    <color name="categoryIncomeColor7">#81C784</color>
+    <color name="categoryIncomeColor8">#A5D6A7</color>
+    <color name="categoryIncomeColor9">#C8E6C9</color>
+
+    <color name="chartGridLine">#efefef</color>
+
+    <!-- ========== 收支颜色升级:渐变色系 ========== -->
+    <color name="expenseColor">#f43f5e</color>
+    <color name="expenseColorLight">#ec4899</color>
+    <color name="incomeColor">#06b6d4</color>
+    <color name="incomeColorLight">#3b82f6</color>
+
+    <color name="icCategoryIncomeNormal">#3f000000</color>
+    <color name="icCategoryIncomeSelected">#ffffff</color>
+    <color name="bgCategoryIncomeNormal">#08000000</color>
+    <color name="bgCategoryIncomeSelected">@color/incomeColor</color>
+
+    <color name="icCategoryExpenseNormal">#3f000000</color>
+    <color name="icCategoryExpenseSelected">#ffffff</color>
+    <color name="bgCategoryExpenseNormal">#08000000</color>
+    <color name="bgCategoryExpenseSelected">@color/expenseColor</color>
+
+
+    <color name="bt_normal">#ffffff</color>
+    <color name="bt_selector">#3f000000</color>
+    
+    <!-- ========== 新增:现代化UI颜色 ========== -->
+    <!-- 背景色 -->
+    <color name="background_modern">#f8fafc</color>
+    <color name="background_card">#ffffff</color>
+    <color name="background_surface">#f1f5f9</color>
+    
+    <!-- 强调色 -->
+    <color name="accent_cyan">#06b6d4</color>
+    <color name="success_green">#10b981</color>
+    <color name="warning_amber">#f59e0b</color>
+    <color name="error_red">#ef4444</color>
+    
+    <!-- 文字颜色 -->
+    <color name="text_primary_modern">#1e293b</color>
+    <color name="text_secondary_modern">#64748b</color>
+    <color name="text_hint_modern">#94a3b8</color>
+    
+    <!-- 阴影和边框 -->
+    <color name="shadow_light">#1a000000</color>
+    <color name="border_light">#e2e8f0</color>
+    
+    <!-- 渐变色(用于代码中) -->
+    <color name="gradient_start">#6366f1</color>
+    <color name="gradient_end">#8b5cf6</color>
+</resources>

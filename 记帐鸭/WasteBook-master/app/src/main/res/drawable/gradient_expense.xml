@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 支出渐变背景 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="90"
+        android:startColor="#f43f5e"
+        android:endColor="#ec4899"
+        android:type="linear" />
+    <corners android:radius="12dp" />
+</shape>

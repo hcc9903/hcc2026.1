@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 现代化按钮背景 - 渐变+圆角 -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#33ffffff">
+    <item>
+        <shape>
+            <gradient
+                android:angle="135"
+                android:startColor="@color/colorPrimary"
+                android:endColor="@color/colorAccent"
+                android:type="linear" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+</ripple>
